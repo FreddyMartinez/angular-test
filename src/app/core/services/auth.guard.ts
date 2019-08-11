@@ -23,10 +23,8 @@ export class AuthGuard implements CanActivate, CanLoad {
   canLoad(
     route: Route,
     segments: UrlSegment[]): Observable<boolean> | Promise<boolean> | boolean {
-      let token = undefined;
-      this.store.select(AuthState.token).subscribe(t => {
-        token = t;
-      });
+      let token = this.store.selectSnapshot(AuthState.token);
+      
       if(token !== undefined) {
         return true;
       }

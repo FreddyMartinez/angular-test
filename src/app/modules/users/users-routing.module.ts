@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { UsersComponent, LogoutComponent} from './components';
+import { UsersComponent, LogoutComponent, MainFrameComponent} from './components';
 
 const routes: Routes = [
-  { path: '', component: UsersComponent},
-  { path: 'log-out', component: LogoutComponent}
+  { path: '', component: MainFrameComponent, children: [
+    { path: '', component: UsersComponent},
+    { path: 'log-out', component: LogoutComponent}
+  ]}
 ];
 
 @NgModule({

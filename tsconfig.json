@@ -14,17 +14,20 @@
       "@services/*": [
         "src/app/shared/services/*"
       ],
+      "@models/*": [
+        "src/app/shared/models/*"
+      ],
+      "@interceptors/*": [
+        "src/app/shared/interceptors/*"
+      ],
+      "@util/*": [
+        "src/app/shared/util/*"
+      ],
       "@core-services/*": [
         "src/app/core/services/*"
       ],
       "@core-store/*": [
         "src/app/core/store/*"
-      ],
-      "@models/*": [
-        "src/app/shared/models/*"
-      ],
-      "@util/*": [
-        "src/app/shared/util/*"
       ]
     },
     "target": "es2015",
