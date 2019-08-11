@@ -17,6 +17,9 @@
       "@core-services/*": [
         "src/app/core/services/*"
       ],
+      "@core-store/*": [
+        "src/app/core/store/*"
+      ],
       "@models/*": [
         "src/app/shared/models/*"
       ],

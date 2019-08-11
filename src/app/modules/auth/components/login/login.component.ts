@@ -1,28 +1,28 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { User } from '@models/user.model';
-import { AuthService} from '@core-services/auth.service';
 import { Subscription } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 import { Messages } from '@util/messages';
+import { Store } from '@ngxs/store';
+import { Login} from '@core-store/auth.actions';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit, OnDestroy {
+export class LoginComponent implements OnDestroy {
 
   user: User;
   private authSubsription: Subscription; 
   
   constructor(
-    private authService: AuthService,
+    private store: Store,
+    private router: Router,
     private toastr: ToastrService
   ) { 
     this.user = new User();
-  }
-
-  ngOnInit() {
   }
 
   ngOnDestroy() {
@@ -30,9 +30,9 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   login() {
-    this.authSubsription = this.authService.login(this.user).subscribe(
-      data =>{
-        console.log(data);
+    this.authSubsription = this.store.dispatch(new Login(this.user)).subscribe(
+      () =>{
+        this.router.navigate(['./users'])
       },
       error => {
         if(error['error']['message']){
