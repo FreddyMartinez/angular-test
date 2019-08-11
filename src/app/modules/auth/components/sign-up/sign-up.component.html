@@ -1,1 +1,26 @@
-<p>sign-up works!</p>
+<p class="login-box-msg">Regístrate como nuevo usuario</p>
+
+<div class="form-group has-feedback">
+    <input type="email" class="form-control" placeholder="Usuario" name="username" [(ngModel)]="user.username" 
+        #username="ngModel" required>
+    <span class="fa fa-user form-control-feedback"></span>
+    <span *ngIf="!username.valid && username.touched" class="warning-message">El nombre de usuario es requerido</span>
+</div>
+<div class="form-group has-feedback">
+    <input type="password" class="form-control" placeholder="Contraseña" name="passwordInput" [(ngModel)]="user.password"
+        #passwordInput="ngModel" required>
+    <span class="fa fa-lock form-control-feedback"></span>
+    <span *ngIf="!passwordInput.valid && passwordInput.touched" class="warning-message">La contraseña es requerida</span>
+</div>
+<div class="form-group has-feedback">
+    <input type="password" class="form-control" placeholder="Repetir Contraseña" name="secondPass" [(ngModel)]="secondPassword" 
+        #secondPass="ngModel" required>
+    <span class="fa fa-sign-in form-control-feedback"></span>
+    <span *ngIf="secondPass.touched && user.password!=secondPassword" class="warning-message">Las contraseñas deben ser iguales</span>
+</div>
+<div class="form-group">
+    <button type="submit" class="btn btn-primary btn-block btn-flat" (click)="register()"
+    [disabled]="!user.username || !user.password || user.password!=secondPassword">Registro</button>
+</div>
+
+<p>¿Ya estás registrado? <a routerLink="/login" class="text-center">¡Ingresa!</a></p>

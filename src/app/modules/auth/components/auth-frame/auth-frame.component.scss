@@ -1,0 +1,62 @@
+@import "~src/scss/styles";
+
+.login-page{
+    background:#d2d6de;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+.login-box{
+    width:360px;
+    margin:5% auto;
+}
+.login-logo{
+    font-size:35px;
+    text-align:center;
+    margin-bottom:20px;
+    font-weight:300;
+}
+.login-logo a{
+    color:#444;
+}
+@media (max-width:768px){
+    .login-box{
+        width:90%;
+        margin-top:20px;
+    }
+}
+.login-box-body{
+    background:#fff;
+    padding:20px;
+    border-top:0;
+    color:#666;
+}
+.login-box-body .form-control-feedback,.register-box-body .form-control-feedback{
+    color:#777;
+}
+.login-box-msg,.register-box-msg{
+    margin:0;
+    text-align:center;
+    padding:0 20px 20px 20px;
+}
+.has-feedback{
+    position: relative;
+}
+.form-control-feedback {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    display: block;
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    pointer-events: none;
+}
+.warning-message{
+    color: $color--warning;
+    font-size: 0.8rem;
+}

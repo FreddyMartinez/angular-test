@@ -13,6 +13,15 @@
     "paths": {
       "@services/*": [
         "src/app/shared/services/*"
+      ],
+      "@core-services/*": [
+        "src/app/core/services/*"
+      ],
+      "@models/*": [
+        "src/app/shared/models/*"
+      ],
+      "@util/*": [
+        "src/app/shared/util/*"
       ]
     },
     "target": "es2015",
