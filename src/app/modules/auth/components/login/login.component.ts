@@ -32,11 +32,11 @@ export class LoginComponent implements OnDestroy {
   login() {
     this.authSubsription = this.store.dispatch(new Login(this.user)).subscribe(
       () =>{
-        this.router.navigate(['./users'])
+        this.router.navigate(['./users']);
       },
       error => {
         if(error['error']['message']){
-          this.toastr.error(error['error']['message'], Messages.msgErrorServer);
+          this.toastr.error(Messages.msgServerLoginError);//server error is not displayed due to language
         }else{
           this.toastr.error(Messages.msgLoginError);
         }

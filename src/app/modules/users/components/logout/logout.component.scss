@@ -1,0 +1,29 @@
+@import "~src/scss/styles";
+
+.logout-page{
+    background:$color-light-gray;
+    position: fixed;
+    left: 0;
+    top: 60;
+    width: 100%;
+    height: 100%;
+}
+.logout-box{
+    width:360px;
+    margin:5% auto;
+}
+.logout-logo{
+    font-size:35px;
+    text-align:center;
+    margin-bottom:20px;
+    font-weight:300;
+}
+.logout-logo a{
+    color: $color-text;
+}
+.logout-box-body{
+    text-align: center;
+    button{
+        margin-top: 20px;
+    }
+}

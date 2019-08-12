@@ -1,18 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { UsersService } from '@services/users.service';
 import { User } from '@models/user.model';
 import { ToastrService } from 'ngx-toastr';
 import { Messages } from '@util/messages';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.scss']
 })
-export class UsersComponent implements OnInit {
+export class UsersComponent implements OnInit, OnDestroy {
 
   public userList: User[];
   public p: number = 1;
+  private usersSubsription: Subscription; 
+  private deleteUserSubsription: Subscription; 
 
   constructor(
     private service: UsersService,
@@ -23,8 +26,13 @@ export class UsersComponent implements OnInit {
     this.getUsers();
   }
 
+  ngOnDestroy() {
+    if(this.usersSubsription) this.usersSubsription.unsubscribe();
+    if(this.deleteUserSubsription) this.deleteUserSubsription.unsubscribe();
+  }
+
   getUsers() {
-    this.service.getUsers().subscribe(
+    this.usersSubsription = this.service.getUsers().subscribe(
       users => {
         this.userList = users as User[];
       },
@@ -35,7 +43,7 @@ export class UsersComponent implements OnInit {
   }
 
   deleteUser(id:string) {
-    this.service.deleteUser(id).subscribe(
+    this.deleteUserSubsription = this.service.deleteUser(id).subscribe(
       () => {
         this.getUsers();
         this.toastr.success(Messages.msgDeleteUserSuccess);
