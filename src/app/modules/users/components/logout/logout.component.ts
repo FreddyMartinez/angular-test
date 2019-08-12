@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { Store } from '@ngxs/store';
 import { Logout} from '@core-store/auth.actions';
@@ -9,15 +9,12 @@ import { Router } from '@angular/router';
   templateUrl: './logout.component.html',
   styleUrls: ['./logout.component.scss']
 })
-export class LogoutComponent implements OnInit {
+export class LogoutComponent {
 
   constructor(
     private store: Store,
     private router: Router
   ) { }
-
-  ngOnInit() {
-  }
 
   logOut() {
     this.store.dispatch(new Logout()).subscribe(
