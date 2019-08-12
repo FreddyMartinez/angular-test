@@ -5,4 +5,7 @@ export class Messages {
     public static msgRegisterError: string = 'Se presentó un error en el registro, por favor vuelve a intentarlo';
 
     public static msgLoginError: string = 'No fue posible ingresar con las credenciales envidas';
+
+    public static msgDeleteUserSuccess: string = 'Usuario eliminado correctamente';
+    public static msgGetUsersError: string = 'Se presentó un error al consultar los usuarios, por favor intente nuevamente';
 }

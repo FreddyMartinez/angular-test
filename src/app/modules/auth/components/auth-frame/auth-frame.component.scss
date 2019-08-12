@@ -1,7 +1,7 @@
 @import "~src/scss/styles";
 
 .login-page{
-    background:#d2d6de;
+    background:$color-light-gray;
     position: absolute;
     top: 0;
     left: 0;
@@ -19,7 +19,7 @@
     font-weight:300;
 }
 .login-logo a{
-    color:#444;
+    color: $color-text;
 }
 @media (max-width:768px){
     .login-box{
@@ -28,12 +28,12 @@
     }
 }
 .login-box-body{
-    background:#fff;
+    background:$color-white;
     padding:20px;
     border-top:0;
     color:#666;
 }
-.login-box-body .form-control-feedback,.register-box-body .form-control-feedback{
+.login-box-body .form-control-feedback{
     color:#777;
 }
 .login-box-msg,.register-box-msg{
@@ -57,6 +57,6 @@
     pointer-events: none;
 }
 .warning-message{
-    color: $color--warning;
+    color: $color-warning;
     font-size: 0.8rem;
 }

@@ -17,7 +17,7 @@ export class UsersService {
   }
 
   deleteUser(id: string) {
-    const url = Connections.UrlServices.concat(Connections.usersEndPoint + id);
+    const url = Connections.UrlServices.concat(Connections.usersEndPoint + '/' + id);
     return this.http.delete(url);
   }
 }

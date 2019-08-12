@@ -1,0 +1,40 @@
+@import "~src/scss/styles";
+
+header{
+    position: fixed; 
+    top: 0;
+    right: 0;
+    left: 0;
+    background: $color-light-black;
+    color: $color-white;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+}
+
+header a {
+    align-self: center;
+}
+
+header a img{
+    height: 40px;
+    margin: auto;
+    padding-left: 10px;
+}
+
+header h2{
+    align-self: center;
+}
+
+header div{
+    align-self: center;
+    margin-right: 10px;
+    span a {
+        color: $color-white;
+    }
+}
+
+.container{
+    margin-top: 70px;
+    margin-bottom: 20px;
+}

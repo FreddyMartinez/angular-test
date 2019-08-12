@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpInterceptor, HttpRequest, HttpHandler } from '@angular/common/http';
+import { HttpInterceptor, HttpRequest, HttpHandler, HttpHeaders } from '@angular/common/http';
 import { Store } from '@ngxs/store';
 import { AuthState } from '@core-store/auth.state';
 
@@ -11,10 +11,12 @@ export class AuthInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler) {
 
     const authToken = this.store.selectSnapshot(AuthState.token);
-    console.log(authToken);
 
     const authReq = req.clone({
-      headers: req.headers.set('Authorization', 'Bearer ' + authToken)
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        'Authorization': 'Bearer ' + authToken
+      })
     });
 
     return next.handle(authReq);

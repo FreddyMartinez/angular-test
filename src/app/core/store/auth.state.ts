@@ -10,7 +10,10 @@ export interface AuthStateModel {
 
 @State<AuthStateModel>({
     name: 'auth',
-    defaults: {}
+    defaults: {
+        accessToken: sessionStorage.getItem('accessToken'),
+        username: sessionStorage.getItem('username')
+    }
 })
 export class AuthState {
 
@@ -25,11 +28,15 @@ export class AuthState {
     login({ patchState, getState }: StateContext<AuthStateModel>, { payload }: Login) {
         return this.authService.login(payload).pipe(tap((result: { accessToken: string }) => {
             patchState({ accessToken: result.accessToken, username: payload.username });
+            sessionStorage.setItem('accessToken', result.accessToken);
+            sessionStorage.setItem('username', payload.username);
         }));
     }
 
     @Action(Logout)
     logout({ setState }: StateContext<AuthStateModel>) {
         setState({});
+        sessionStorage.removeItem('accessToken');
+        sessionStorage.removeItem('username');
     }
 }

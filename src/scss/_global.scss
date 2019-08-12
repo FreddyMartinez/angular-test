@@ -3,29 +3,29 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: "roboto-light", Arial, sans-serif;
+  font-family: "montserrat-bold", Arial, sans-serif;
   box-sizing: border-box;
 }
   
 /* Background styles */
 .bg {
     &--primary {
-      background: $color--primary;
+      background: $color-primary;
     }
   
     &--warning {
-      background: $color--warning;
+      background: $color-warning;
     }
   
     &--success {
-      background: $color--success;
+      background: $color-success;
     }
   
     &--error {
-      background: $color--error;
+      background: $color-error;
     }
   
     &--alternative {
-      background: $color--alternative;
+      background: $color-alternative;
     }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Select } from '@ngxs/store';
 import { Observable } from 'rxjs';
 
@@ -7,14 +7,11 @@ import { Observable } from 'rxjs';
   templateUrl: './main-frame.component.html',
   styleUrls: ['./main-frame.component.scss']
 })
-export class MainFrameComponent implements OnInit {
+export class MainFrameComponent {
   
   @Select(state => state.auth.username)
   user$: Observable<string>;
 
   constructor() { }
-
-  ngOnInit() {
-  }
 
 }
