@@ -11,6 +11,10 @@
 .login-box{
     width:360px;
     margin:5% auto;
+    @include media(xs){
+        width:90%;
+        margin-top:20px;
+    }
 }
 .login-logo{
     font-size:35px;
@@ -21,12 +25,7 @@
 .login-logo a{
     color: $color-text;
 }
-@media (max-width:768px){
-    .login-box{
-        width:90%;
-        margin-top:20px;
-    }
-}
+
 .login-box-body{
     background:$color-white;
     padding:20px;

@@ -23,6 +23,9 @@
       "@util/*": [
         "src/app/shared/util/*"
       ],
+      "@animations/*": [
+        "src/app/shared/animations/*"
+      ],
       "@core-services/*": [
         "src/app/core/services/*"
       ],
