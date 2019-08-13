@@ -7,7 +7,7 @@ $breakpoint-lg: 1360px;
 // Function that receives a media variable to get dimensions
 @mixin media($media) {
     @if $media == all {
-        @media only screen and (max-width: $breakpoint-xs) {
+        @media only screen and (min-width: 1px) {
             @content;
         }
     }  @else if $media == xs {
